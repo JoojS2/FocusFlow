@@ -109,6 +109,12 @@ npm install
 npm run dev
 ```
 
+### 5. Ou inicialize direto no site
+
+```bash
+https://focus-flow-self-two.vercel.app/
+```
+
 O Vite exibirá no terminal o endereço local para acessar a aplicação no navegador, normalmente `http://localhost:5173`.
 
 ## Scripts disponíveis
