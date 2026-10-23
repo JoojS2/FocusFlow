@@ -27,9 +27,9 @@ export default function TaskItem({ task, onToggle, onDelete, onUpdate }: Props) 
 
   if (editing) {
     return (
-      <li className={`task p-${task.priority}`}>
+      <li className={`task editing p-${task.priority}`}>
         <input
-          className="input grow"
+          className="input edit-input"
           value={title}
           autoFocus
           onChange={(e) => setTitle(e.target.value)}
@@ -39,15 +39,22 @@ export default function TaskItem({ task, onToggle, onDelete, onUpdate }: Props) 
           }}
           aria-label="Editar nome da tarefa"
         />
-        <select className="input" value={priority} onChange={(e) => setPriority(e.target.value as Priority)}>
-          {(Object.keys(PRIORITY_LABEL) as Priority[]).map((p) => (
-            <option key={p} value={p}>
-              {PRIORITY_LABEL[p]}
-            </option>
-          ))}
-        </select>
-        <button className="btn primary" onClick={save}>Salvar</button>
-        <button className="btn ghost" onClick={cancel}>Cancelar</button>
+        <div className="edit-actions">
+          <select
+            className="input"
+            value={priority}
+            onChange={(e) => setPriority(e.target.value as Priority)}
+            aria-label="Prioridade"
+          >
+            {(Object.keys(PRIORITY_LABEL) as Priority[]).map((p) => (
+              <option key={p} value={p}>
+                {PRIORITY_LABEL[p]}
+              </option>
+            ))}
+          </select>
+          <button className="btn primary" onClick={save} disabled={!title.trim()}>Salvar</button>
+          <button className="btn ghost" onClick={cancel}>Cancelar</button>
+        </div>
       </li>
     );
   }
