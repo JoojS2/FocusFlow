@@ -74,6 +74,14 @@ body {
 .badge { font-size: 0.8rem; color: var(--muted); }
 .empty { text-align: center; color: var(--muted); border: 1.5px dashed var(--edge); border-radius: 12px; padding: 32px 16px; }
 
+
+/* modo de edição: campo grande em linha própria, ações embaixo */
+.task.editing { flex-direction: column; align-items: stretch; gap: 12px; }
+.edit-input { width: 100%; min-height: 54px; padding: 12px 14px; font-size: 1.05rem; }
+.edit-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.edit-actions .input { flex: 1 1 140px; }
+.edit-actions .btn { flex: 1 1 110px; }
+
 @media (max-width: 640px) {
   .app { padding: 16px 14px 48px; gap: 14px; }
   .brand { font-size: 1.6rem; }
@@ -95,8 +103,8 @@ body {
   .title { flex: 1 1 calc(100% - 40px); }
   .badge { order: 3; padding: 4px 10px; border: 1.5px solid var(--edge); border-radius: 99px; color: var(--ink); }
   .task .btn { order: 4; flex: 1 1 0; padding: 8px 10px; }
-  .task .input.grow { flex-basis: 100%; }
-  .task select.input { flex: 1 1 100%; }
+  .edit-input { font-size: 18px; min-height: 58px; }
+  .edit-actions .input { flex-basis: 100%; }
 }
 @media (max-width: 360px) {
   .stat strong { font-size: 1.4rem; }
